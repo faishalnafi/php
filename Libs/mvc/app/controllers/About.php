@@ -1,8 +1,13 @@
 <?php
 
 class About {
-    public function index ()
+    public function halo ($nama = 'afii', $kerja = 'programer')
     {
-        echo 'About/index';
+        echo "About $nama bekerja $kerja";
+    }
+
+    public function index () 
+    {
+        echo "About/index";
     }
 }
