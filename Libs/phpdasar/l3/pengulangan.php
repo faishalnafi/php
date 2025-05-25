@@ -55,13 +55,16 @@ echo "<br>";
     <!-- memisahkan tag html dan php -->
     <br><br><br>
     <table border="1" cellspacing="0" cellpadding="10">
-        <?php for($i=1; $i<=5; $i++) { ?>
+        <?php for($i=1; $i<=5; $i++) : ?>
             <tr>
                 <?php for ($j=1; $j<=5; $j++) { ?>
                     <td><?php echo "$i,$j"; ?></td>
                 <?php } ?>
             </tr>
-        <?php } ?>
+        <?php endfor; ?>
     </table>
+    <!-- bila kode sudah banyak dan bersarang maka penutup kurung kurawal di php dalam html sangat membingungkan
+     terdapat saran dan triknya, untuk { => ubah menjadi : dan menutupnyaa } => ubah menjadi end[perintahnya];
+     misalnya perintah for maka endfor,bila perintah if maka endif, bila foreach maka enforeach dan seterusnya. -->
 </body>
 </html>
