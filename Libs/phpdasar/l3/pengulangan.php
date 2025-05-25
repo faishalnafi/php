@@ -58,11 +58,12 @@ echo "<br>";
         <?php for($i=1; $i<=5; $i++) : ?>
             <tr>
                 <?php for ($j=1; $j<=5; $j++) { ?>
-                    <td><?php echo "$i,$j"; ?></td>
+                    <td><?= "$i,$j"; ?></td>
                 <?php } ?>
             </tr>
         <?php endfor; ?>
     </table>
+    <!-- dpat juga menyingkat <php echo dengan samadengan, sebagai contoh perbedaan antara line 48 dan 61. -->
     <!-- bila kode sudah banyak dan bersarang maka penutup kurung kurawal di php dalam html sangat membingungkan
      terdapat saran dan triknya, untuk { => ubah menjadi : dan menutupnyaa } => ubah menjadi end[perintahnya];
      misalnya perintah for maka endfor,bila perintah if maka endif, bila foreach maka enforeach dan seterusnya. -->
