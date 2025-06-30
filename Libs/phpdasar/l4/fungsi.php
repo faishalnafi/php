@@ -12,6 +12,17 @@ juga menyediakan buatan user sendiri dikenal dengan user-defined function
 > mktime()
 > strtotime()
 
+# string
+> strlen()
+> strcmp()
+> explode()
+> htmlspecialchars()
+
+# utility / fungsi bantuan
+> var_dump()
+> isset() | cek telah membuat sebuah variabel atau blm, menghasilkan boolean
+> empty ()
+
 */
 
 // struktur fungsi di php > >
@@ -31,3 +42,13 @@ echo "<p>manual dokumentasi: <a href='https://www.php.net/manual/en/function.dat
 echo time();
 echo "<br>";
 echo date("l, d-M-Y", time()+60*60*24*7);
+echo "<br>";
+
+// mktime!!
+// membuat sendiri waktu (detik), memiliki 6 parameter (0,0,0,0,0,0) | jam menit detik bulan tanggal tahun;
+echo date("l, d M Y", mktime(0,0,0,4,18,2005));
+echo "<br>";
+
+// strtotime!!
+echo date("l, d M Y", strtotime("18 apr 2005"));
+echo "<br>";
