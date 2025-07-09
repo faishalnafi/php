@@ -22,15 +22,13 @@ juga menyediakan buatan user sendiri dikenal dengan user-defined function
 > var_dump()
 > isset() | cek telah membuat sebuah variabel atau blm, menghasilkan boolean
 > empty ()
+> die()
+> sleep ()
 
 */
 
 // struktur fungsi di php > >
-// function namaFungsi ( $parameter1; $parameter2) {
-// blok kode yang dijalankan
-// .....
-// return $nilaiKembalian; //Opsional, jika fungsi mengembalikan nilai
-// }
+// namaFungsi ( $parameter1; $parameter2);
 
 // date!!
 echo date("l, d-M-Y"); //date harus memberikan minimal 1 parameter agar dapat dijalankan, menggunakan echo agar dapat ditampilkan pada frame;
