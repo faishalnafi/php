@@ -35,6 +35,7 @@ echo $mahasiswa[0]["name"];
     </style>
 </head>
 <body>
+    <!-- pengulangan data mahasiswa menggunakan foreach dan menampilkan gambar -->
     <h1><b>DATA MAHASISWA</b></h1>
     <?php foreach($mahasiswa as $mhs): ?>
         <ul>
