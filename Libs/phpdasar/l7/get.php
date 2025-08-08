@@ -14,13 +14,22 @@ $mahasiswa = [
         "nama" => "faishalnafi'", 
         "id" => "12345", 
         "jurusan" => "SI",
-        "gambar" => "avatar.jpg"
+        "gambar" => "avatar2.jpg",
+        "surel" => "fi@mail.id"
     ],
     [
         "nama" => "ucupsurucup",
         "id" => "67890",
         "jurusan" => "SI",
-        "gambar" => "avatar1.jpg"
+        "gambar" => "avatar1.jpg",
+        "surel" => "ucup@mail.com"
+    ],
+    [
+        "nama" => "boediman",
+        "id" => "45678",
+        "jurusan" => "SI",
+        "gambar" => "avatar.jpg",
+        "surel" => "budi@mail.org"
     ]
 ];
 ?>
@@ -44,7 +53,7 @@ $mahasiswa = [
         <ul>
             <!-- <li><img src="img/<?= $mhs["gambar"]; ?>" alt="hero.png" class="hero"></li>
             <li><?= $mhs["id"]; ?></li> -->
-            <li><?= $mhs["nama"]; ?></li>
+            <li><a href="details-get.php?nama=<?= $mhs["nama"]; ?>&id=<?= $mhs["id"]; ?>&jurusan=<?= $mhs["jurusan"]; ?>&gambar=<?= $mhs["gambar"]; ?>&surel=<?= $mhs["surel"]; ?>"><?= $mhs["nama"]; ?></a></li>
         </ul>
     <?php endforeach;?>
 </body>
