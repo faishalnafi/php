@@ -1,20 +1,6 @@
 <?php
 // koneksi db
-// mysql_connect #versi lama banyak kelemahan
-$conn = mysqli_connect("localhost", "root", "", "phpdasar");
-
-// ambil data dari tabel mahasiswa
-$result = mysqli_query($conn, "SELECT * FROM mahasiswa");
-// var_dump ($result);
-
-// ambil data (fetch) dari object $result tabel mahasiswa
-// mysqli_fetch_row(); #MENGEMBALIKAN ARRAY NUMERIK
-// mysqli_fetch_assoc(); #MENGEMBALIKAN ARRAY ASOSIATIF
-// mysqli_fetch_array(); #MENGEMBALIKAN ARRAY ASOSIATIF DAN NUMERIK
-// mysqli_fetch_object(); #MENGEMBALIKAN OBJECT MENGGUNAKAN PANAH ->
-
-// var_dump (mysqli_fetch_assoc($result)["jurusan"]);
-// var_dump (mysqli_fetch_object($result)->jurusan);
+require 'koneksi.php';
 ?>
 
 <!DOCTYPE html>

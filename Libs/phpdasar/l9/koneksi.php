@@ -6,7 +6,10 @@ $user = "root";
 $password = "";
 $database = "phpdasar";
 
-$conn = mysql_connect($server, $user, $password, $database);
+$conn = mysqli_connect($server, $user, $password, $database);
 if (!$conn) {
     die ("Koneksi gagal: " . mysqli_connect_error());
 }
+
+$query =  "SELECT * FROM mahasiswa";
+$result = mysqli_query($conn, $query);
