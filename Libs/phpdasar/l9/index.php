@@ -8,10 +8,13 @@ $result = mysqli_query($conn, "SELECT * FROM mahasiswa");
 // var_dump ($result);
 
 // ambil data (fetch) dari object $result tabel mahasiswa
-// mysqli_fetch_row();
-// mysqli_fetch_assoc();
-// mysqli_fetch_array();
-// mysqli_fetch_object();
+// mysqli_fetch_row(); #MENGEMBALIKAN ARRAY NUMERIK
+// mysqli_fetch_assoc(); #MENGEMBALIKAN ARRAY ASOSIATIF
+// mysqli_fetch_array(); #MENGEMBALIKAN ARRAY ASOSIATIF DAN NUMERIK
+// mysqli_fetch_object(); #MENGEMBALIKAN OBJECT MENGGUNAKAN PANAH ->
+
+// var_dump (mysqli_fetch_assoc($result)["jurusan"]);
+// var_dump (mysqli_fetch_object($result)->jurusan);
 ?>
 
 <!DOCTYPE html>
@@ -34,15 +37,21 @@ $result = mysqli_query($conn, "SELECT * FROM mahasiswa");
             <th>Surel</th>
             <th>Jurusan</th>
         </tr>
+
+        <?php $i = 1;?>
+        <?php while ($brs = mysqli_fetch_assoc($result)):?>
         <tr>
-            <td>1</td>
+            <td><?= $i; ?></td>
             <td><a href="#">ubah</a> | <a href="#">hapus</a></td>
-            <td><img src="img/avatar2.jpg" alt="" width="50"></td>
-            <td>1234567809</td>
-            <td>Faishal Nafi</td>
-            <td>care@faishalnafi.com</td>
-            <td>Sistem Informasi</td>
+            <td><img src="img/<?= $brs["gambar"]?>" alt="" width="50"></td>
+            <td><?= $brs["npm"]?></td>
+            <td><?= $brs["nama"]?></td>
+            <td><?= $brs["email"]?></td>
+            <td><?= $brs["jurusan"]?></td>
         </tr>
+        <?php $i++; ?>
+        <?php endwhile;?>
     </table>
+    
 </body>
 </html>
