@@ -1,6 +1,7 @@
 <?php
 // koneksi db
-require 'koneksi.php';
+require 'konfigurasi.php';
+$mahasiswa = query($qr_db);
 ?>
 
 <!DOCTYPE html>
@@ -25,18 +26,18 @@ require 'koneksi.php';
         </tr>
 
         <?php $i = 1;?>
-        <?php while ($brs = mysqli_fetch_assoc($result)):?>
+        <?php foreach($mahasiswa as $mhs):?>
         <tr>
             <td><?= $i; ?></td>
             <td><a href="#">ubah</a> | <a href="#">hapus</a></td>
-            <td><img src="img/<?= $brs["gambar"]?>" alt="" width="50"></td>
-            <td><?= $brs["npm"]?></td>
-            <td><?= $brs["nama"]?></td>
-            <td><?= $brs["email"]?></td>
-            <td><?= $brs["jurusan"]?></td>
+            <td><img src="img/<?= $mhs["gambar"]?>" alt="profile.hero" width="50"></td>
+            <td><?= $mhs["npm"]?></td>
+            <td><?= $mhs["nama"]?></td>
+            <td><?= $mhs["email"]?></td>
+            <td><?= $mhs["jurusan"]?></td>
         </tr>
         <?php $i++; ?>
-        <?php endwhile;?>
+        <?php endforeach;?>
     </table>
     
 </body>
