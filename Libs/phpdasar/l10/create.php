@@ -1,7 +1,26 @@
 <?php
-// cek apakah tombol simpan apakah sudah ditekan
+require 'konfigurasi.php';
+
+// Cek apakah tombol simpan sudah ditekan
 if (isset($_POST["submit"])) {
-    var_dump($_POST);
+    
+    // Panggil fungsi create dan langsung kirimkan data dari $_POST
+    // Jika create() berhasil, hasilnya akan lebih dari 0
+    if (create($_POST) > 0) {
+        echo "
+            <script>
+                alert('Data berhasil ditambahkan!');
+                document.location.href = 'index.php';
+            </script>
+        ";
+    } else {
+        echo "
+            <script>
+                alert('Data gagal ditambahkan!');
+                document.location.href = 'create.php';
+            </script>
+        ";
+    }
 }
 ?>
 
@@ -18,8 +37,8 @@ if (isset($_POST["submit"])) {
 
     <form action="" method="post">
         <ul>
-            <li><label for="npm">NRP: </label><input type="text" name="npm" id="npm"></li>
-            <li><label for="nama">Nama: </label><input type="text" name="nama" id="nama"></li>
+            <li><label for="npm">NRP: </label><input type="text" name="npm" id="npm" required></li>
+            <li><label for="nama">Nama: </label><input type="text" name="nama" id="nama" required></li>
             <li><label for="username">Username: </label><input type="text" name="username" id="username"></li>
             <li><label for="email">Surel: </label><input type="text" name="email" id="email"></li>
             <li><label for="jurusan">Jurusan: </label><input type="text" name="jurusan" id="jurusan"></li>

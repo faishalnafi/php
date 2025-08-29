@@ -2,16 +2,38 @@
 
 // KONFIGURASI DATABASE
 // KONFIGURASI DARI koneksi.php
-require 'koneksi.php';
-$qr_db = "SELECT * FROM mahasiswa";
+require_once 'koneksi.php';
+$read_db = "SELECT * FROM mahasiswa";
 
-function query ($query) {
+function read ($read) {
     global $conn;
 
-    $result = mysqli_query($conn, $query);
+    $result = mysqli_query($conn, $read);
     $rows = [];
     while ($row = mysqli_fetch_assoc($result)) {
         $rows [] = $row;
     }
     return $rows;
+}
+
+function create ($data) {
+    global $conn;
+
+    // Ambil data dari array $data dan amankan dari HTML injection
+    // Ini praktik keamanan yang baik
+    $nama = htmlspecialchars($data["nama"]);
+    $npm = htmlspecialchars($data["npm"]);
+    $email = htmlspecialchars($data["email"]);
+    $gambar = htmlspecialchars($data["gambar"]);
+    $jurusan = htmlspecialchars($data["jurusan"]);
+    $username = htmlspecialchars($data["username"]);
+
+    // Bangun query INSERT di DALAM fungsi, dengan data yang sudah diterima
+    $query = "INSERT INTO mahasiswa (nama, npm, email, gambar, jurusan, username) VALUES ('$nama', '$npm', '$email', '$gambar', '$jurusan', '$username')";
+
+    // Jalankan query
+    mysqli_query($conn, $query);
+
+    // Kembalikan jumlah baris yang terpengaruh oleh query (1 jika berhasil, -1 jika error)
+    return mysqli_affected_rows($conn);
 }

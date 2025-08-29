@@ -1,7 +1,7 @@
 <?php
 // koneksi db
 require 'konfigurasi.php';
-$mahasiswa = query($qr_db);
+$mahasiswa = read($read_db);
 
 // koneksi fungsi //
 require 'fungsi.php';
