@@ -29,7 +29,7 @@ if (isset($_POST["submit"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP MYSQL 10 | create data</title>
+    <title>PHP MYSQL 11 | create data</title>
 </head>
 <body>
     <h1>Halaman Tambah Data Mahasiswa</h1>

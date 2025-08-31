@@ -24,9 +24,16 @@ function create ($data) {
     $nama = htmlspecialchars($data["nama"]);
     $npm = htmlspecialchars($data["npm"]);
     $email = htmlspecialchars($data["email"]);
-    $gambar = htmlspecialchars($data["gambar"]);
+    // $gambar = htmlspecialchars($data["gambar"]);
     $jurusan = htmlspecialchars($data["jurusan"]);
     $username = htmlspecialchars($data["username"]);
+
+    // Upload gambar
+    $gambar = unggah();
+    // bisa menggunakan !$gambar atau $gambar === false untuk parameternya
+    if (!$gambar) {
+        return false;
+    }
 
     // Bangun query INSERT di DALAM fungsi, dengan data yang sudah diterima
     $query = "INSERT INTO mahasiswa (nama, npm, email, gambar, jurusan, username) VALUES ('$nama', '$npm', '$email', '$gambar', '$jurusan', '$username')";
@@ -56,9 +63,9 @@ function update($data)
     $nama = htmlspecialchars($data["nama"]);
     $npm = htmlspecialchars($data["npm"]);
     $email = htmlspecialchars($data["email"]);
-    $gambar = htmlspecialchars($data["gambar"]);
     $jurusan = htmlspecialchars($data["jurusan"]);
     $username = htmlspecialchars($data["username"]);
+    $gambar = htmlspecialchars($data["gambar"]);
 
     // ================== INI BAGIAN YANG DIPERBAIKI ==================
     // Gunakan sintaks UPDATE yang benar:
@@ -79,3 +86,42 @@ function update($data)
     // Kembalikan jumlah baris yang terpengaruh oleh query
     return mysqli_affected_rows($conn);
 }
+
+// =============================== INI BAGIAN UNGGAH GAMBAR =================================== //
+function unggah() {
+    $namaFile = $_FILES['gambar']['name'];
+    $ukuranFile = $_FILES['gambar']['size'];
+    $errorFile = $_FILES['gambar']['error'];
+    $simpanFile = $_FILES['gambar']['tmp_name'];
+
+    // cek gambar diunggah
+    if($errorFile === 4) {
+        echo "<script>alert('Pilih Gambar Dahulu!');</script>";
+        return false;
+    }
+
+    // cek hanya gambar saja
+    $validasi = ['jpg', 'jpeg', 'png'];
+    $ekstensi = explode('.', $namaFile);
+    $ekstensi = strtolower(end($ekstensi));
+    if(!in_array($ekstensi,$validasi)) {
+        echo "<script>alert('Ekstensi yang diperbolehkan hanya jpg jpeg dan png!');</script>";
+        return false;
+    }
+
+    // cek ukuran maksimal file
+    // satuan ukuran dalam bentuk byte;
+    $fileMax = 2000000;
+    if($ukuranFile > $fileMax) {
+        echo "<script>alert('Gambar yang diunggah melebihi dari 2mb!');</script>";
+        return false;
+    }
+
+    // membuat nama file baru
+    $namaFileBaru = uniqid() . '.' . $namaFile; // Buat nama acak agar tidak ada nama file yang sama
+    move_uploaded_file($simpanFile, 'img/' . $namaFileBaru);
+
+    // kembalikan nama file untuk disimpan ke database
+    return $namaFileBaru;
+}
+// ============================================================================================ //

@@ -12,3 +12,4 @@ function cari($keyword) {
 
     return read($query);
 }
+

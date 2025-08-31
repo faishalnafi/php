@@ -12,7 +12,7 @@ require 'fungsi.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP MYSQL 10</title>
+    <title>PHP MYSQL 11</title>
 </head>
 <body>
     <h1>DAFATR NAMA MAHASISWA</h1>
