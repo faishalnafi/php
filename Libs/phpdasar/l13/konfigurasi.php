@@ -126,7 +126,7 @@ function unggah() {
     }
 
     // membuat nama file baru
-    $namaFileBaru = uniqid() . '.' . $namaFile; // Buat nama acak agar tidak ada nama file yang sama
+    $namaFileBaru = uniqid() . '.' . $ekstensi; // Buat nama acak agar tidak ada nama file yang sama
     move_uploaded_file($simpanFile, 'img/' . $namaFileBaru);
 
     // kembalikan nama file untuk disimpan ke database
