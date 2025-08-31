@@ -65,7 +65,15 @@ function update($data)
     $email = htmlspecialchars($data["email"]);
     $jurusan = htmlspecialchars($data["jurusan"]);
     $username = htmlspecialchars($data["username"]);
-    $gambar = htmlspecialchars($data["gambar"]);
+    // $gambar = htmlspecialchars($data["gambar"]);
+    $gambarLama = htmlspecialchars($data["gambarLama"]);
+
+    // cek apakah user melakukan unggah gambar
+    if($_FILES['gambar']['error'] === 4) {
+        $gambar = $gambarLama;
+    } else {
+        $gambar = unggah();
+    }
 
     // ================== INI BAGIAN YANG DIPERBAIKI ==================
     // Gunakan sintaks UPDATE yang benar:

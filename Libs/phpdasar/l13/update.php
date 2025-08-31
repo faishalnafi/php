@@ -40,15 +40,16 @@ if (isset($_POST["submit"])) {
     <h1>Halaman Ubah Mahasiswa</h1>
     <a href="index.php">Kembali</a>
 
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $mhs["id"]; ?>">
+        <input type="hidden" name="gambarLama" value="<?= $mhs["gambar"]; ?>">
         <ul>
             <li><label for="npm">NRP: </label><input type="text" name="npm" id="npm" required value="<?= $mhs["npm"]; ?>"></li>
             <li><label for="nama">Nama: </label><input type="text" name="nama" id="nama" required value="<?= $mhs["nama"]; ?>"></li>
             <li><label for="username">Username: </label><input type="text" name="username" id="username" required value="<?= $mhs["username"]; ?>"></li>
             <li><label for="email">Surel: </label><input type="text" name="email" id="email" value="<?= $mhs["email"]; ?>"></li>
             <li><label for="jurusan">Jurusan: </label><input type="text" name="jurusan" id="jurusan" value="<?= $mhs["jurusan"]; ?>"></li>
-            <li><label for="gambar">Profil: </label><input type="text" name="gambar" id="gambar" value="<?= $mhs["gambar"]; ?>"></li>
+            <li><label for="gambar">Profil: </label><br><img src="img/<?= $mhs["gambar"]; ?>" alt="profile.hero" width="100"><br><input type="file" name="gambar" id="gambar"></li>
             <li><button type="submit" name="submit">Simpan</button></li>
         </ul>
     </form>
